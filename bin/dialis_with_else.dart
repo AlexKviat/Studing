@@ -34,16 +34,14 @@ void myWeightToDialis(dynamic) {
 }
 
 void main(List<String> arguments) {
-  print("Для расчета вашего веса введите !вес"); //запрос действия
+  print("ВВЕДИТЕ СВОЙ ВЕС ДЛЯ РАСЧЕТА"); //запрос действия
   var entrStr = stdin.readLineSync() ?? "";
+  dynamic entrDouble = double?.tryParse(entrStr);
   // ответ
-  switch (entrStr) {
+  if (entrDouble is double) {
     //проверка
-    case "!вес": //если содержит строку
-      myWeightToDialis(dynamic); //выполнение функции
-      break;
-    default: // в другом случай
-
-      (print('Завершение'));
+    myWeightToDialis(dynamic);
+  } else {
+    (print('Завершение'));
   }
 }
